@@ -5,83 +5,120 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
+
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args)  {
 
         System.setProperty("webdriver.gecko.driver", "F:\\QALab1\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+
         driver.get("https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
 
-        //driver.get("https://www.udemy.com/");
-        //WebElement input = driver.findElement(By.xpath("//input[@name='q']"));
-        // denys.dulepin.knm.2018@lpnu.ua
+
+        try {
+            WebElement input = driver.findElement(By.xpath("//input[@class='whsOnd zHQkBf']"));
+
+            input.sendKeys("denys.dulepin.knm.2018@lpnu.ua", Keys.ENTER);
+
+            WebElement input2 = driver.findElement(By.xpath("//input[@name='password']"));
+
+            input2.sendKeys("20.05.2003", Keys.ENTER);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
-        WebElement input = driver.findElement(By.xpath("//input[@name='identifier']"));
-        input.click();
-        input.sendKeys("denys.dulepin.knm.2018@lpnu.ua", Keys.ENTER);
-
-        WebElement input2 = driver.findElement(By.xpath("//input[@name='password']"));
-        input2.click();
-        input2.sendKeys("20.05.2003", Keys.ENTER);
-
-        //class='T-I T-I-KE L3'
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
-
-//        WebElement input3 = driver.findElement(By.xpath("//div[@class='T-I T-I-KE L3']"));
-//        input3.click();
-//
-//
-//        WebElement who = driver.findElement(By.xpath("//textarea[@name='to']"));
-//        who.click();
-//        who.sendKeys("denys.dulepin.knm.2018@lpnu.ua");
-//
-//        WebElement text = driver.findElement(By.xpath("//div[@aria-label='\"'Текст повідомлення']"));
-//        text.click();
-//        text.sendKeys("555555");
-//
-//        //data-tooltip="Надіслати ?(Ctrl –Enter)?"
-//
-//        WebElement send = driver.findElement(By.xpath("//*[@id=':110']/text()"));
-//        send.click();
-
-        Thread.sleep(3000);
-        WebElement button= driver.findElement(By.xpath("//div[@class='T-I T-I-KE L3']"));
-        button.click();
-
-
-//         WebElement to = driver.findElement(By.xpath("//*[@id=':pp']"));
-
-        WebElement to = driver.findElement(By.xpath("//textarea[@name='to']"));
-to.click();
-        to.sendKeys("denys.dulepin.knm.2018@lpnu.ua");
+        WebElement MoreButton = driver.findElement(By.xpath("//div[@class='n6']"));
+        MoreButton.click();
 
 
 
-//        WebElement sub = driver.findElement(By.xpath("//input[@id=':p6']"));
-//
-//        sub.click();
-//        sub.sendKeys("Hello");
-
-
-        WebElement txt = driver.findElement(By.xpath("//div[@class='Am Al editable LW-avf tS-tW']"));
-        txt.click();
-        txt.sendKeys("Hello world");
+        WebElement MitkaButton = driver.findElement(By.xpath("//div[@class='CL Wj']"));
+        MitkaButton.click();
 
 
 
-        WebElement button2 =  driver.findElement(By.xpath("//div[@class='T-I J-J5-Ji aoO v7 T-I-atl L3']"));
-//        WebElement button2 =  driver.findElement(By.xpath("//button[@id=':ow']"));
-        button2.click();
+        WebElement MitkaName = driver.findElement(By.xpath("//input[@class='xx']"));
+        MitkaName.sendKeys("aa", Keys.ENTER);
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        try {
+            WebElement EmailOpenClick = driver.findElement(By.xpath("//div[@class='xT']"));
+            EmailOpenClick.click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            driver.get("https://mail.google.com/mail/u/0/#inbox/QgrcJHrttkJTWjknckkZlzzrSlghcFZTcfG" );
+        }
+
+
+        try {
+            WebElement EmailAddMitkaClick = driver.findElement(By.xpath("//div[@class='T-I J-J5-Ji T-I-Js-Gs mA mw T-I-ax7 L3']"));
+            EmailAddMitkaClick.click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            driver.get("https://mail.google.com/mail/u/2/#settings/labels");
+        }
+
+
+
+
+
+
+
+
+
+
+        try {
+            WebElement MitkaSettingDeleteButton = driver.findElement(By.xpath("//span[@act='lpe']"));
+            MitkaSettingDeleteButton.click();
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+
+
+
+
+        try {
+
+            WebElement MitkaSettingDeleteYesButton = driver.findElement(By.xpath("//button[@class='J-at1-atl']"));
+
+            MitkaSettingDeleteYesButton.click();
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
 
 
 

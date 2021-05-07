@@ -1,0 +1,23 @@
+
+WebElement EmailOpenClick = driver.findElement(By.xpath("//*[.='test']"));
+        EmailOpenClick.click();
+
+
+Thread.sleep(3000);
+
+        WebElement Mitkadelete = driver.findElement(By.xpath("//div[@class='TO nZ aiq']"));
+        Mitkadelete.click();
+
+        WebElement MitkadeleteButtonDelete = driver.findElement(By.xpath("//div[@class='J-N-Jz']"));
+        MitkadeleteButtonDelete.click();
+
+        WebElement MitkadeleteButtonYes = driver.findElement(By.xpath("//button[@class='J-at1-atl']"));
+        MitkadeleteButtonYes.click();
+
+
+
+Map<Integer,String > map = new HashMap<>();
+            map.put(0,"test");
+            String text = map.get(0);
+
+            WebElement EmailOpenClick = driver.findElement(By.xpath("//*[.="+text+"]"));
